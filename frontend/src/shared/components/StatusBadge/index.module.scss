@@ -3,31 +3,51 @@
 .badge {
     display: inline-flex;
     align-items: center;
-    padding: 2px 10px;
-    border-radius: 20px;
-    color: var(--primary-white-100);
-    @include ff("Inter", 500, 12px, 1.4);
+    gap: 6px;
+    padding: 3px 11px 3px 9px;
+    border-radius: var(--radius-pill);
+    @include ff("Inter", 600, 12px, 1.4);
     white-space: nowrap;
 }
 
-.pending {
-    background-color: var(--status-pending);
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    flex-shrink: 0;
 }
-.in_progress {
-    background-color: var(--status-in-progress);
+
+.pulse {
+    animation: badge-pulse 1.4s ease-in-out infinite;
 }
-.completed {
-    background-color: var(--status-completed);
+
+.green {
+    background-color: var(--green-bg);
+    color: var(--green-ink);
 }
-.cancelled {
-    background-color: var(--status-cancelled);
+
+.amber {
+    background-color: var(--amber-bg);
+    color: var(--amber-ink);
 }
-.failed {
-    background-color: var(--status-failed);
+
+.red {
+    background-color: var(--red-bg);
+    color: var(--red-ink);
 }
-.success {
-    background-color: var(--status-success);
+
+.neutral {
+    background-color: var(--neutral-bg);
+    color: var(--neutral-ink);
 }
-.error {
-    background-color: var(--status-error);
+
+@keyframes badge-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.35;
+    }
 }

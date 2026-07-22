@@ -4,23 +4,63 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    padding: 18px;
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card);
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label {
+    @include ff("Inter", 600, 13px, 1.2);
+    color: var(--ink);
+}
+
+.counter {
+    min-width: 24px;
+    padding: 1px 8px;
+    text-align: center;
+    border-radius: var(--radius-pill);
+    background-color: var(--surface-2);
+    color: var(--ink-2);
+    @include ff("Inter", 600, 12px, 1.6);
 }
 
 .textarea {
     width: 100%;
-    padding: 12px;
-    border: 1px solid var(--base-border-color);
-    border-radius: 10px;
+    min-height: 132px;
+    padding: 12px 14px;
+    border: 1px solid var(--line-2);
+    border-radius: var(--radius-control);
     resize: vertical;
-    @include ff("Inter", 400, 14px, 1.4);
+    color: var(--ink);
+    background-color: var(--surface);
+    @include ff("Inter", 400, 14px, 1.5);
     outline: none;
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+
+    &::placeholder {
+        color: var(--ink-3);
+    }
 
     &:focus {
-        border-color: var(--status-in-progress);
+        border-color: var(--ink);
+        box-shadow: 0 0 0 3px var(--ring);
     }
+}
+
+.submit {
+    width: 100%;
 }
 
 .error {
     @include ff("Inter", 500, 13px, 1.4);
-    color: var(--status-error);
+    color: var(--red-ink);
 }

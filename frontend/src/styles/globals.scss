@@ -16,9 +16,9 @@ html {
 body {
     min-height: 100%;
     font-family: "Inter", sans-serif;
-    color: var(--primary-black-100);
+    color: var(--ink);
     line-height: 1.5;
-    background-color: var(--page-bg);
+    background-color: var(--bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -36,26 +36,48 @@ a {
 button {
     cursor: pointer;
     font-family: inherit;
+    color: inherit;
     background: none;
+}
+
+button:disabled {
+    cursor: not-allowed;
 }
 
 textarea {
     font-family: inherit;
 }
 
-:root {
-    --primary-black-100: #1a1a1a;
-    --primary-white-100: #ffffff;
-    --grey-color: #666666;
-    --page-bg: #f5f5f5;
-    --component-bg: #ececec;
-    --base-border-color: #e2e2e2;
+::selection {
+    background: #0a0a0a;
+    color: #ffffff;
+}
 
-    --status-pending: #9aa0a6;
-    --status-in-progress: #0055bb;
-    --status-success: #2e9e5b;
-    --status-error: #d93a3a;
-    --status-cancelled: #b26a00;
-    --status-completed: #2e9e5b;
-    --status-failed: #d93a3a;
+:root {
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --surface-2: #f4f4f5;
+    --ink: #0a0a0a;
+    --ink-2: #52525b;
+    --ink-3: #a1a1aa;
+    --line: #e6e6e8;
+    --line-2: #d4d4d8;
+    --hover: rgba(0, 0, 0, 0.035);
+    --black: #0a0a0a;
+    --black-hover: #262626;
+    --ring: rgba(0, 0, 0, 0.14);
+
+    --radius-card: 16px;
+    --radius-field: 12px;
+    --radius-control: 10px;
+    --radius-pill: 9999px;
+
+    --green-bg: #dcfce7;
+    --green-ink: #15803d;
+    --amber-bg: #fef3c7;
+    --amber-ink: #b45309;
+    --red-bg: #fee2e2;
+    --red-ink: #b91c1c;
+    --neutral-bg: #f0f0f2;
+    --neutral-ink: #6b7280;
 }

@@ -4,27 +4,48 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 40px;
-    padding: 0 20px;
-    border-radius: 10px;
-    color: var(--primary-white-100);
-    @include ff("Inter", 600, 14px, 1.2);
-    transition: opacity 0.15s ease;
+    gap: 8px;
+    height: 44px;
+    padding: 0 22px;
+    border-radius: var(--radius-field);
+    @include ff("Inter", 600, 14px, 1);
+    white-space: nowrap;
+    transition:
+        background-color 0.18s ease,
+        border-color 0.18s ease,
+        opacity 0.18s ease;
 
     &:disabled {
-        opacity: 0.5;
+        opacity: 0.45;
         cursor: not-allowed;
-    }
-
-    &:hover:not(:disabled) {
-        opacity: 0.9;
     }
 }
 
 .primary {
-    background-color: var(--status-in-progress);
+    background-color: var(--black);
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+        background-color: var(--black-hover);
+    }
+}
+
+.secondary {
+    background-color: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line-2);
+
+    &:hover:not(:disabled) {
+        background-color: var(--hover);
+    }
 }
 
 .danger {
-    background-color: var(--status-error);
+    background-color: var(--surface);
+    color: var(--red-ink);
+    border: 1px solid var(--red-bg);
+
+    &:hover:not(:disabled) {
+        background-color: var(--red-bg);
+    }
 }

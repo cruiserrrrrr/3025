@@ -24,7 +24,12 @@ const Jobs = () => {
 
     return (
         <div className={styles.page}>
-            <h1 className={styles.title}>Проверка URL</h1>
+            <header className={styles.header}>
+                <h1 className={styles.title}>Проверка ссылок</h1>
+                <p className={styles.subtitle}>
+                    Асинхронная проверка доступности URL
+                </p>
+            </header>
             <div className={styles.layout}>
                 <aside className={styles.sidebar}>
                     <JobForm />

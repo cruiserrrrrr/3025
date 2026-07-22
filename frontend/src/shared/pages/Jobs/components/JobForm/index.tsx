@@ -5,18 +5,22 @@ import { selectJobsError, selectSubmitting } from "@/shared/store/slices/jobs";
 import Button from "@/components/Button";
 import styles from "./index.module.scss";
 
+const parseUrls = (value: string) =>
+    value
+        .split("\n")
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0);
+
 const JobForm = () => {
     const dispatch = useDispatch();
     const submitting = useSelector(selectSubmitting);
     const error = useSelector(selectJobsError);
     const [value, setValue] = useState("");
 
-    const handleSubmit = async () => {
-        const urls = value
-            .split("\n")
-            .map((line) => line.trim())
-            .filter((line) => line.length > 0);
+    const count = parseUrls(value).length;
 
+    const handleSubmit = async () => {
+        const urls = parseUrls(value);
         if (urls.length === 0) {
             return;
         }
@@ -30,15 +34,24 @@ const JobForm = () => {
 
     return (
         <div className={styles.form}>
+            <div className={styles.head}>
+                <span className={styles.label}>Ссылки для проверки</span>
+                <span className={styles.counter}>{count}</span>
+            </div>
             <textarea
                 className={styles.textarea}
-                placeholder="Один URL на строку"
+                placeholder="Вставьте ссылки, по одной на строку"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 rows={6}
             />
             {error ? <p className={styles.error}>{error}</p> : null}
-            <Button onClick={handleSubmit} disabled={submitting}>
+            <Button
+                className={styles.submit}
+                onClick={handleSubmit}
+                disabled={count === 0}
+                loading={submitting}
+            >
                 Запустить проверку
             </Button>
         </div>
