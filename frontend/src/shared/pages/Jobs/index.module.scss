@@ -1,0 +1,32 @@
+@use "../../../styles/mixin/ff" as *;
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.title {
+    @include ff("Inter", 700, 28px, 1.2);
+    color: var(--primary-black-100);
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main {
+    min-width: 0;
+}

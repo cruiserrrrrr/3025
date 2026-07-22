@@ -1,0 +1,30 @@
+@use "../../../styles/mixin/ff" as *;
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 10px;
+    color: var(--primary-white-100);
+    @include ff("Inter", 600, 14px, 1.2);
+    transition: opacity 0.15s ease;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+        opacity: 0.9;
+    }
+}
+
+.primary {
+    background-color: var(--status-in-progress);
+}
+
+.danger {
+    background-color: var(--status-error);
+}

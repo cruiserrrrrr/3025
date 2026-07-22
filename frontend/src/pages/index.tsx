@@ -1,7 +1,8 @@
 import React, { ReactElement } from "react";
+import Jobs from "@/pages/Jobs";
 
 const IndexPage = (): ReactElement => {
-    return <div>URL Checker</div>;
+    return <Jobs />;
 };
 
 export default IndexPage;

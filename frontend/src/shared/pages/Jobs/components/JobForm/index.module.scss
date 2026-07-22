@@ -1,0 +1,26 @@
+@use "../../../../../styles/mixin/ff" as *;
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--base-border-color);
+    border-radius: 10px;
+    resize: vertical;
+    @include ff("Inter", 400, 14px, 1.4);
+    outline: none;
+
+    &:focus {
+        border-color: var(--status-in-progress);
+    }
+}
+
+.error {
+    @include ff("Inter", 500, 13px, 1.4);
+    color: var(--status-error);
+}

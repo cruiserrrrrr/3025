@@ -1,0 +1,58 @@
+@use "../../../../../styles/mixin/ff" as *;
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid var(--base-border-color);
+    border-radius: 10px;
+    background-color: var(--primary-white-100);
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+
+    &:hover {
+        border-color: var(--status-in-progress);
+    }
+}
+
+.active {
+    border-color: var(--status-in-progress);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.id {
+    @include ff("Inter", 600, 13px, 1.2);
+    color: var(--primary-black-100);
+}
+
+.stats {
+    display: flex;
+    gap: 12px;
+    @include ff("Inter", 400, 12px, 1.2);
+    color: var(--grey-color);
+}
+
+.success {
+    color: var(--status-success);
+}
+
+.error {
+    color: var(--status-error);
+}
+
+.empty {
+    @include ff("Inter", 400, 14px, 1.4);
+    color: var(--grey-color);
+}
