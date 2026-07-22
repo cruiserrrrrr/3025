@@ -1,0 +1,10 @@
+@mixin ff($family, $weight, $size: null, $line-height: null) {
+    font-family: $family, sans-serif;
+    font-weight: $weight;
+    @if ($size) {
+        font-size: $size;
+    }
+    @if ($line-height) {
+        line-height: $line-height;
+    }
+}
