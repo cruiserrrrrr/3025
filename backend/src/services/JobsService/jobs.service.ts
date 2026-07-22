@@ -36,6 +36,13 @@ export class JobsService {
         if (!job) {
             throw new NotFoundException("Задача не найдена");
         }
+        if (
+            job.status === JobStatus.COMPLETED ||
+            job.status === JobStatus.CANCELLED ||
+            job.status === JobStatus.FAILED
+        ) {
+            return job;
+        }
         job.cancelled = true;
         job.urls.forEach((jobUrl) => {
             if (jobUrl.status === UrlStatus.PENDING) {
